@@ -31,7 +31,7 @@ timezone:    Asia/Shanghai
 # Templating
 title:       Aidi's Blog
 author:      Aidi Tan
-paginate:    10
+paginate:    20
 service:
   baidu:     true
   uyan_uid:  1820817
