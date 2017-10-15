@@ -23,10 +23,10 @@
 
 {% if page.feature.image %}
   <div class="feature-trigger am-text-center">
-    <span class="feature-opener am-icon-chevron-up"></span>
-    <span class="feature-closer am-icon-chevron-down"></span>
+    <span class="feature-opener am-icon-chevron-up" style="display:none"></span>
+    <span class="feature-closer am-icon-chevron-down" style="display:none"></span>
   </div>
-  <div id="feature">
+  <div id="feature" style="display:none">
     <img src="{{ site.baseurl }}/assets/images/{{ page.feature.image }}" title="封面图片" style="display: none;">
     {% if page.image.credit %}
       <span class="am-text-sm">
@@ -39,8 +39,8 @@
     {% endif %}
   </div>
   <div class="feature-trigger am-text-center">
-    <span class="feature-opener am-icon-chevron-down"></span>
-    <span class="feature-closer am-icon-chevron-up"></span>
+    <span class="feature-opener am-icon-chevron-down" style="display:none"></span>
+    <span class="feature-closer am-icon-chevron-up" style="display:none"></span>
   </div>
 {% endif %}
 

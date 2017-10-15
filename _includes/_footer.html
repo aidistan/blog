@@ -47,7 +47,9 @@ var uyan_config = {
 <script type="text/javascript">
   var names = ["{{ page.youziku.names | join: '","' }}"];
   var guids = ["{{ page.youziku.guids | join: '","' }}"];
-  for (var i in names) $youziku.load('.' + names[i], guids[i], names[i]);
-  $youziku.draw();
+  if (names.length > 0 && guids.length > 0) {
+    for (var i in names) $youziku.load('.' + names[i], guids[i], names[i]);
+    $youziku.draw();
+  }
 </script>
 {% endif %}
