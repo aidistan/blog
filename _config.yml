@@ -21,7 +21,7 @@ markdown:    kramdown
 highlighter: rouge
 
 # Serving
-url:         http://blog.aiditan.me
+url:         http://blog.aidistan.site
 baseurl:     ""
 
 # Outputting
