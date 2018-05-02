@@ -8,7 +8,6 @@ feature:
   image: 2015/0216.jpg
   credit: Lidi Stan
   creditlink: http://www.cd-pa.com/bbs/?16981
-comments: post-20150216
 ---
 
 # I

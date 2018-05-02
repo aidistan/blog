@@ -4,7 +4,6 @@ title: 自由与责任
 description: 找一个只有成年人的地方工作
 modified: 2016-04-23 20:16:11 +0800
 tags: [心情]
-comments: post-20160423
 ---
 
 这周读了一篇博文[《成年人的公司: 自由与责任》](http://zhuanlan.zhihu.com/p/20785465)，顺带看了文中推崇的[《Netflix 的文化：自由与责任》](http://wenku.baidu.com/link?url=dgCrVckTEV0tvDpbzmPo2ZC9smOqDftV2U2IbWYVx390ddJCF_00da1Se2dVDJY1aL8Y06dUlL5kbT3PJE6FFNw3eCF4LPNn7PrMGl3dEw3)这套幻灯片。结合自己在学校、公司的经历，若有所悟。

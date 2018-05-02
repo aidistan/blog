@@ -18,25 +18,6 @@
 <!-- Main JS -->
 <script src="{{ site.baseurl }}/assets/javascripts/main.js"></script>
 
-<!-- JiaThis -->
-<script type="text/javascript">var jiathis_config = {data_track_clickback:'true'};</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1820817" charset="utf-8"></script>
-
-<!-- UYan -->
-{% if site.service.uyan_uid and page.comments %}
-<script type="text/javascript">
-var uyan_config = {
-  'title': '{{ page.title }}',
-  'url': '{{ site.url }}{{ page.url }}',
-  {% if page.feature.image %}
-  'pic': '{{ site.url }}/assets/images/{{ page.feature.image }}',
-  {% endif %}
-  'su': '{{ page.comments }}'
-};
-</script>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid={{ site.service.uyan_uid }}"></script>
-{% endif %}
-
 <!-- MathJax -->
 {% if page.mathjax %}
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

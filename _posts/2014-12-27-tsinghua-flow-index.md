@@ -8,7 +8,6 @@ feature:
   image: 2014/1227.jpg
   credit: 华清商报
   creditlink: http://www.shbiz.com.cn/Item/207963.aspx
-comments: post-20141227
 ---
 
 华清网北京12月27日电（“今日槽点”记者尚步奇）清华网络中心22日公布的统计数据显示，12月份清华流量指数（Tsinghua Flow Index）同比上涨108.6%，环比上涨26.5%，再创新高，这充分说明了当前流量使用过快、付费预期较强的态势。

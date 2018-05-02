@@ -7,7 +7,6 @@ feature:
   image: 2015/0331.jpg
   credit: 时光网
   creditlink: http://movie.mtime.com/139718/posters_and_images/2166423/
-comments: post-20150331
 link: http://movie.mtime.com/139718/
 ---
 

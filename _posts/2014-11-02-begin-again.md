@@ -6,7 +6,6 @@ modified: 2014-11-02 18:04:54 +0800
 tags: [电影, 音乐]
 feature:
   image: 2014/1102.jpg
-comments: post-20141102
 link: http://movie.mtime.com/161400/
 ---
 

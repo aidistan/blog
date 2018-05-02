@@ -8,7 +8,6 @@ feature:
   image: 2016/0712.jpg
   credit: Diffen
   creditlink: http://www.diffen.com/difference/Fedora_vs_Ubuntu
-comments: post-20160712
 ---
 
 关于这个问题，网上已经有了无数的比较。以下是我觉得较有价值的几篇：

@@ -4,7 +4,6 @@ title: 怎样理解模式识别
 description:
 modified: 2016-02-18 13:48:38 +0800
 tags: [极客]
-comments: post-20140618
 ---
 ## 基本概念
 

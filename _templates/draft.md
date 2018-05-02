@@ -8,6 +8,5 @@ feature:
   image:
   credit:
   creditlink:
-comments:
 link:
 ---

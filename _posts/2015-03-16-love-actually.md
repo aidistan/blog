@@ -8,7 +8,6 @@ feature:
   image: 2015/0316.jpg
   credit: 时光网
   creditlink: http://movie.mtime.com/12609/posters_and_images/476943/
-comments: post-20150316
 link: http://movie.mtime.com/12609/
 ---
 

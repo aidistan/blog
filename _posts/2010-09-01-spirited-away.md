@@ -6,7 +6,6 @@ modified: 2016-07-03 07:18:59 +0800
 tags: [演奏, 音乐, 电影]
 feature:
   image: 2010/0901.jpg
-comments: post-20100901
 link: http://movie.mtime.com/11550/
 ---
 

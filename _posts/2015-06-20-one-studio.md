@@ -6,7 +6,6 @@ modified: 2015-06-21 22:11:06 +0800
 tags: [体验]
 feature:
   image: 2015/0620.jpg
-comments: post-20150620
 link: http://www.dianping.com/shop/22965347
 ---
 

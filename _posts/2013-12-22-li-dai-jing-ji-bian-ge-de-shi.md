@@ -3,7 +3,6 @@ layout: post
 title: "历代经济变革得失"
 modified: 2014-11-12 13:05:56 +0800
 tags: [读书]
-comments: post-20141112
 link: http://book.douban.com/subject/24851460/
 ---
 

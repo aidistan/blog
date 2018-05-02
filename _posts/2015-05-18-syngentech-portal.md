@@ -6,7 +6,6 @@ modified: 2015-06-20 10:48:12 +0800
 tags: [网站]
 feature:
   image: 2015/0518.jpg
-comments: post-20150518
 link: http://www.syngentech.com.cn/
 ---
 

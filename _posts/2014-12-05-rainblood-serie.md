@@ -8,7 +8,6 @@ feature:
   image: 2014/1205.jpg
   credit: 雨血官网
   creditlink: http://yx.gamebar.com/Label/2011/12/08/000034.shtml
-comments: post-20141205
 link: http://www.s-game.com.cn/
 ---
 

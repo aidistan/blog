@@ -8,7 +8,6 @@ feature:
   image: 2014/0801.jpg
   credit: 时光网
   creditlink: http://movie.mtime.com/208906/posters_and_images/2393047/
-comments: post-20140823
 link: http://movie.mtime.com/208906/
 ---
 

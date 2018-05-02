@@ -6,7 +6,6 @@ modified: 2014-12-06 16:19:47 +0800
 tags: [读书, 网站]
 feature:
   image: 2014/1118.jpg
-comments: post-20141118
 link: http://book.douban.com/subject/25717097/
 ---
 

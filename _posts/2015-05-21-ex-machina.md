@@ -8,7 +8,6 @@ feature:
   image: 2015/0521.jpg
   credit: Mtime
   creditlink: http://movie.mtime.com/58544/posters_and_images/7001186/
-comments: post-20150521
 link: http://movie.mtime.com/58544/
 ---
 

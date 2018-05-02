@@ -4,7 +4,6 @@ title: "高效能人士的七个习惯"
 description: "这是一本关于成长的书。"
 modified: 2014-12-06 03:52:53 +0800
 tags: [读书]
-comments: post-20141206
 link: http://book.douban.com/subject/1048007/
 ---
 

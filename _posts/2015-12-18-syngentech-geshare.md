@@ -6,7 +6,6 @@ modified: 2016-01-09 22:35:00 +0800
 tags: [网站, 产品]
 feature:
   image: 2015/1218.jpg
-comments: post-20151218
 link: http://www.geshare.com.cn
 ---
 

@@ -4,7 +4,6 @@ title: "Ruby on Rails Tutorial"
 description: "带你走进 Rails 的国度"
 modified: 2015-01-25 15:44:59 +0800
 tags: [读书, 极客]
-comments: post-20150125
 link: https://www.railstutorial.org/
 ---
 

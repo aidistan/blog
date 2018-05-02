@@ -6,7 +6,7 @@ namespace :serve do
   task :default do
     config = YAML.load(File.read('_config.yml'))
 
-    %w(baidu uyan_uid).each do |s|
+    %w(baidu).each do |s|
       config['service'].delete(s)
     end
 
@@ -73,7 +73,6 @@ namespace :publish do
   def publish_draft(path, time = ask_date)
     File.open(path.gsub(%r{^_drafts/}, "_posts/#{time.strftime('%Y-%m-%d')}-"), 'w').puts File.read(path)
       .gsub(/^modified:[ 0-9\-:+]*$/, "modified: #{time.strftime('%Y-%m-%d %H:%M:%S %z')}")
-      .gsub(/^comments:$/, "comments: post-#{time.strftime('%Y%m%d')}")
 
     File.unlink(path)
   end

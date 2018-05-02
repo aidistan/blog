@@ -7,7 +7,6 @@ feature:
   image: 2014/0201.jpg
   credit: Cloud Tea Studio
   creditlink: http://englishbreak.com/
-comments: post-20140220
 link: http://englishbreak.com/
 ---
 

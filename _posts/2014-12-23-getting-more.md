@@ -4,7 +4,6 @@ title: "沃顿商学院最受欢迎的谈判课"
 description: "谈判，旨在争取更多"
 modified: 2014-12-27 23:00:44 +0800
 tags: [读书]
-comments: post-20141223
 link: http://book.douban.com/subject/11589950/
 ---
 
