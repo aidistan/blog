@@ -10,7 +10,7 @@ exclude:     ["README.md", "Rakefile", "Gemfile", "CNAME"]
 # Plugins
 sass:
   style:     :compressed
-gems:
+plugins:
   - jekyll-coffeescript
   - jekyll-feed
   - jekyll-sitemap

@@ -2,7 +2,8 @@
 layout: note
 ---
 
-{% for note in site.notes | sort: 'url' %}
+{% assign sorted_notes = site.notes | sort: 'url' %}
+{% for note in sorted_notes %}
   {% if note.url contains page.permalink %}
     {% if note.url == page.permalink %}{% continue %}{% endif %}
     <article class="am-article">
