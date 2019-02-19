@@ -4,7 +4,7 @@ title:
 description:
 ---
 
-{% for post in paginator.posts %}
+{% for post in site.tags['推荐'] %}
 <article class="am-article">
   <h1 class="am-article-title">
     <a href="{{ site.baseurl }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url"><strong>{{ post.title }}</strong></a>
@@ -19,33 +19,3 @@ description:
 {% endfor %}
 
 <hr class="am-article-divider" />
-
-<ul class="am-pagination am-pagination-centered">
-  <li class="am-pagination-prev {% if paginator.previous_page == null %}am-disabled{% endif %}">
-    <a href="{{ site.baseurl }}/">
-      <span class="am-icon-angle-double-left"></span>
-    </a>
-  </li>
-  <li class="am-pagination-prev {% if paginator.previous_page == null %}am-disabled{% endif %}">
-    <a href="{{ site.baseurl }}/{% if paginator.previous_page > 1 %}page{{ paginator.previous_page }}/{% endif %}">
-      <span class="am-icon-angle-left"></span>
-    </a>
-  </li>
-
-  {% for count in (1..paginator.total_pages) %}
-  <li{% if count == paginator.page %} class="am-active"{% endif %}>
-    <a href="{% if count == 1 %}{{ site.baseurl }}/{% else %}{{ site.baseurl }}/page{{ count }}{% endif %}">{{ count }}</a>
-  </li>
-  {% endfor %}
-
-  <li class="am-pagination-next {% if paginator.next_page == null %}am-disabled{% endif %}">
-    <a href="{{ site.baseurl }}/page{{ paginator.total_pages }}">
-      <span class="am-icon-angle-double-right"></span>
-    </a>
-  </li>
-  <li class="am-pagination-next {% if paginator.next_page == null %}am-disabled{% endif %}">
-    <a href="{{ site.baseurl }}/page{% if paginator.next_page %}{{ paginator.next_page }}{% else %}{{ paginator.total_pages }}{% endif %}" style="margin-bottom: 5px; margin-right: 5px;">
-      <span class="am-icon-angle-right"></span>
-    </a>
-  </li>
-</ul>
