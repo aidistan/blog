@@ -33,15 +33,3 @@
 {% if page.mathjax %}
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 {% endif %}
-
-<!-- Youziku -->
-{% if page.youziku %}
-<script type="text/javascript">
-  var names = ["{{ page.youziku.names | join: '","' }}"];
-  var guids = ["{{ page.youziku.guids | join: '","' }}"];
-  if (names.length > 0 && guids.length > 0) {
-    for (var i in names) $youziku.load('.' + names[i], guids[i], names[i]);
-    $youziku.draw();
-  }
-</script>
-{% endif %}
