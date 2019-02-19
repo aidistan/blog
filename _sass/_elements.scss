@@ -8,12 +8,8 @@
   position: fixed;
   z-index: 9;
   bottom: 0;
-
-  width: 100%;
-
-  .am-container {
-    position: relative;
-  }
+  right: 16px;
+  width: 32px;
 }
 
 #navbar {
@@ -23,7 +19,7 @@
 
   a {
     cursor: pointer;
-    box-shadow: 0 0 1px #888, 1px 2px 1px #888;
+    color: rgba(0, 0, 0, 0.4)
   }
 }
 
