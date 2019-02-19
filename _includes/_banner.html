@@ -5,20 +5,12 @@
       <sup><a class="am-icon-external-link" href="{{ page.link }}" target="_blank"></a></sup>
     {% endif %}
   </h1>
+
   {% if page.layout == 'note' or page.layout == 'note-index' %}
     {% include _breadcrumbs.html %}
   {% elsif page.description %}
     <p>{{ page.description }}</p>
   {% endif %}
-
-  <nav role="navigation">
-    <ul class="am-text-center">
-      <li><a href="{{ site.baseurl }}/" style="padding: 5px 10px;"><img src="{{ site.baseurl }}/assets/images/favicon.png" width=32 height=32></a></li>
-      <li><a href="{{ site.baseurl }}/tags/">标签</a></li>
-      <li><a href="{{ site.baseurl }}/posts/">时光</a></li>
-      <li><a href="{{ site.baseurl }}/about/">关于</a></li>
-    </ul>
-  </nav>
 </div>
 
 {% if page.feature.image %}

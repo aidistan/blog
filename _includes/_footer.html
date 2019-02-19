@@ -1,7 +1,18 @@
 <footer class="am-footer am-footer-default">
   <div class="am-footer-miscs ">
-    <div>Copyright &copy; 2013-{{ site.time | date: '%Y' }} <a href="http://aidistan.site" target="_blank">{{ site.author }}</a>, All Rights Reserved.</div>
-    <div>Proudly built on <a href="http://amazeui.org" target="_blank">Amaze UI</a>, published by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, and hosted on <a href="https://github.com" target="_blank">Github</a>.</div>
+    <div>
+      <a href="{{ site.baseurl }}/">首页</a>
+      |
+      <a href="{{ site.baseurl }}/tags/">标签</a>
+      |
+      <a href="{{ site.baseurl }}/posts/">时光</a>
+      |
+      <a href="{{ site.baseurl }}/notes/">笔记</a>
+      |
+      <a href="{{ site.baseurl }}/about/">关于</a>
+    </div>
+
+    <div>Copyright &copy; 2013-{{ site.time | date: '%Y' }} <a href="http://aidistan.site" target="_blank">{{ site.author }}</a></div>
   </div>
 </footer>
 

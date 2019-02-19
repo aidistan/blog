@@ -14,16 +14,7 @@ layout: default
     </div>
 
     <div class="am-article-meta">
-      <span>
-        发表日期:
-        <time datetime="{{ page.date | date_to_xmlschema }}">
-          {{ page.date | date: "%Y年%m月%d日" }}
-        </time>
-        | 最新修订:
-        <time datetime="{{ page.modified | date_to_xmlschema  }}">
-          {{ page.modified | date: "%Y年%m月%d日" }}
-        </time>
-      </span>
+      修订于<time datetime="{{ page.modified | date_to_xmlschema  }}">{{ page.modified | date: "%Y年%m月%d日" }}</time>
       <span class="am-fr">
         {% for tag in page.tags %}
           <a href="{{ site.baseurl }}/tags/#{{ tag }}" title="Pages tagged {{ tag }}" class="am-badge am-round">{{ tag }}</a>
