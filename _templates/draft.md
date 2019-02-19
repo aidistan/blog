@@ -4,9 +4,5 @@ title:
 description:
 modified:
 tags: []
-feature:
-  image:
-  credit:
-  creditlink:
 link:
 ---

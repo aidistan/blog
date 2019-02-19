@@ -3,10 +3,6 @@ layout: post
 title: "Cloud Tea Studio"
 modified: 2014-07-08 22:05:09 +0800
 tags: [网站]
-feature:
-  image: 2014/0201.jpg
-  credit: Cloud Tea Studio
-  creditlink: http://englishbreak.com/
 link: http://englishbreak.com/
 ---
 

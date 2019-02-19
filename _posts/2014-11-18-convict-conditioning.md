@@ -4,8 +4,6 @@ title: "囚徒健身"
 description: "别只读，要用！"
 modified: 2014-12-06 16:19:47 +0800
 tags: [读书, 网站]
-feature:
-  image: 2014/1118.jpg
 link: http://book.douban.com/subject/25717097/
 ---
 

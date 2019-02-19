@@ -3,10 +3,6 @@ layout: post
 title: "节食与长寿"
 description: "没有人不希望保持尽可能的年轻"
 modified: 2015-03-21 21:35:19 +0800
-feature:
-  image: 2015/0323.jpg
-  credit: Natural Health Journals
-  creditlink: http://www.natural-health-journals.com/
 tags: [电影]
 link: http://movie.mtime.com/207492/
 ---

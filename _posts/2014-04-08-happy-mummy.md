@@ -4,8 +4,6 @@ title: 幸福妈咪
 description: 幸福妈咪之尿布攻略
 modified: 2015-06-20 09:49:27 +0800
 tags: [网站]
-feature:
-  image: 2014/0408.png
 link: http://aidistan.github.io/work-happy-mummy/
 ---
 

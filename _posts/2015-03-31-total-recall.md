@@ -3,10 +3,6 @@ layout: post
 title: "全面回忆"
 modified: 2015-03-31 23:16:09 +0800
 tags: [电影]
-feature:
-  image: 2015/0331.jpg
-  credit: 时光网
-  creditlink: http://movie.mtime.com/139718/posters_and_images/2166423/
 link: http://movie.mtime.com/139718/
 ---
 

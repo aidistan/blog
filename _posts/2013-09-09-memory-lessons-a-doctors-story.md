@@ -3,10 +3,6 @@ layout: post
 title: "最后，才知道该如何爱你"
 modified: 2014-07-08 16:31:13 +0800
 tags: [读书]
-feature:
-  image: 2013/0901.jpg
-  credit: Philip Toledano
-  creditlink: http://www.dayswithmyfather.com/
 link: http://book.douban.com/subject/6534012/
 ---
 

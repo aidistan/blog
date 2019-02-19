@@ -4,8 +4,6 @@ title: "星际穿越"
 description: "两小时等待，三小时观影，影有所值。"
 modified: 2014-11-29 02:55:26 +0800
 tags: [电影]
-feature:
-  image: 2014/1129.jpg
 link: http://movie.mtime.com/51119/
 ---
 

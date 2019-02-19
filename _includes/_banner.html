@@ -13,29 +13,6 @@
   {% endif %}
 </div>
 
-{% if page.feature.image %}
-  <div class="feature-trigger am-text-center">
-    <span class="feature-opener am-icon-chevron-up" style="display:none"></span>
-    <span class="feature-closer am-icon-chevron-down" style="display:none"></span>
-  </div>
-  <div id="feature" style="display:none">
-    <img src="{{ site.baseurl }}/assets/images/{{ page.feature.image }}" title="封面图片" style="display: none;">
-    {% if page.image.credit %}
-      <span class="am-text-sm">
-        {% if page.image.creditlink %}
-          <a href="{{ page.image.creditlink }}" target="_blank">{{ page.image.credit }}</a>
-        {% else %}
-          {{ page.image.credit }}
-        {% endif %}
-      </span>
-    {% endif %}
-  </div>
-  <div class="feature-trigger am-text-center">
-    <span class="feature-opener am-icon-chevron-down" style="display:none"></span>
-    <span class="feature-closer am-icon-chevron-up" style="display:none"></span>
-  </div>
-{% endif %}
-
 <div id="navbar-wrapper">
   <div class="am-container">
     <div id="navbar">

@@ -4,8 +4,6 @@ title: "匆匆那年"
 description: "不悔梦归处，只恨太匆匆"
 modified: 2015-03-30 22:41:40 +0800
 tags: [电影]
-feature:
-  image: 2015/0330.jpg
 link: http://movie.mtime.com/210239/
 ---
 

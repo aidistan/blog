@@ -3,8 +3,6 @@ layout: post
 title: "亲密敌人"
 modified: 2014-07-08 20:35:58 +0800
 tags: [电影]
-feature:
-  image: 2013/1004.jpg
 link: http://movie.mtime.com/147231/
 ---
 
