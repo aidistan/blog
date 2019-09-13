@@ -1,15 +1,28 @@
+AllCops:
+  TargetRubyVersion: 2.5.5
+
+# We should and could handle them ourselves.
 Metrics/LineLength:
   Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Style/AsciiComments:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
 
-Style/Alias:
-  EnforcedStyle: prefer_alias_method
-
-Style/AlignParameters:
+# We prefer indented style then aligned style.
+Layout/AlignHash:
+  Enabled: false
+Layout/AlignParameters:
   EnforcedStyle: with_fixed_indentation
-
-Style/MultilineMethodCallIndentation:
+Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
-
-Style/NestedParenthesizedCalls:
-  Exclude:
-    - 'spec/**/*_spec.rb'

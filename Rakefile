@@ -6,7 +6,7 @@ namespace :serve do
   task :default do
     config = YAML.load(File.read('_config.yml'))
 
-    %w(baidu).each do |s|
+    %w[baidu].each do |s|
       config['service'].delete(s)
     end
 
@@ -38,15 +38,14 @@ namespace :new do
 
     # Generate
     filepath = "_notes/#{path}.md"
-    raise 'Specified directory not exists.' unless Dir.exist?(File.dirname(filepath))
-    File.open(filepath, 'w').puts <<-END_OF_DOC
----
-layout:    note
-permalink: /notes/#{path}/
-title:     #{title}
-date:      #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}
-modified:  #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}
----
+    File.open(filepath, 'w').puts <<~END_OF_DOC
+      ---
+      layout:    note
+      permalink: /notes/#{path}/
+      title:     #{title}
+      date:      #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}
+      modified:  #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}
+      ---
     END_OF_DOC
     say "#{filepath.inspect} created"
   end

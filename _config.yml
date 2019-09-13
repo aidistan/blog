@@ -3,7 +3,8 @@ collections:
   notes:
     output:  true
   posts_hided:
-    output:  false
+    output:  true
+    permalink: /_/:name/
 
 # Handling reading
 include:     []
@@ -14,8 +15,6 @@ sass:
   style:     :compressed
 plugins:
   - jekyll-coffeescript
-  - jekyll-feed
-  - jekyll-sitemap
 
 # Conversion
 markdown:    kramdown
