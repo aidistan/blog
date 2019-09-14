@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'date'
 require 'yaml'
 require 'highline/import'
 
 namespace :serve do
   task :default do
-    config = YAML.load(File.read('_config.yml'))
+    config = YAML.load(File.read('_config.yml')) # rubocop:disable Security/YAMLLoad
 
     %w[baidu].each do |s|
       config['service'].delete(s)
@@ -18,36 +20,34 @@ end
 namespace :new do
   desc 'Create a new draft'
   task :draft do
-    File.open('_drafts/new-draft.md', 'w').puts File.read('_templates/draft.md')
-      .gsub(/^modified:$/, "modified: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}")
+    content = <<~END_OF_DOC
+      ---
+      layout: post
+      title:
+      description:
+      modified:
+      tags: []
+      link:
+      ---
+    END_OF_DOC
+
+    File.open('_drafts/new-draft.md', 'w').puts content.gsub(
+      /^modified:$/, "modified: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"
+    )
   end
 
   desc 'Create a new page'
   task :page do
-    File.open('new-page.html', 'w').puts File.read('_templates/page.html')
-  end
-
-  desc 'Create a new note'
-  task :note do
-    # Interact
-    path = ask(
-      'Please specify the relative path:',
-      ->(str) { str.gsub(/\.md$/, '') }
-    ) { |q| q.default = 'new-note' }
-    title = ask('Please specify the title:') { |q| q.default = '' }
-
-    # Generate
-    filepath = "_notes/#{path}.md"
-    File.open(filepath, 'w').puts <<~END_OF_DOC
+    content = <<~END_OF_DOC
       ---
-      layout:    note
-      permalink: /notes/#{path}/
-      title:     #{title}
-      date:      #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}
-      modified:  #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}
+      layout: page
+      permalink:
+      title:
+      description:
       ---
     END_OF_DOC
-    say "#{filepath.inspect} created"
+
+    File.open('new-page.html', 'w').puts content
   end
 end
 
@@ -69,11 +69,13 @@ namespace :publish do
     end
   end
 
-  def publish_draft(path, time = ask_date)
-    File.open(path.gsub(%r{^_drafts/}, "_posts/#{time.strftime('%Y-%m-%d')}-"), 'w').puts File.read(path)
+  def publish_draft(draft_path, time = ask_date)
+    content = File.read(draft_path)
       .gsub(/^modified:[ 0-9\-:+]*$/, "modified: #{time.strftime('%Y-%m-%d %H:%M:%S %z')}")
+    path = draft_path.gsub(%r{^_drafts/}, "_posts/#{time.strftime('%Y-%m-%d')}-")
 
-    File.unlink(path)
+    File.open(path, 'w').puts content
+    File.unlink(draft_path)
   end
 
   def ask_date

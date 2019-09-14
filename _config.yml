@@ -1,14 +1,12 @@
 # Where things are
 collections:
-  notes:
-    output:  true
   posts_hided:
     output:  true
     permalink: /_/:name/
 
 # Handling reading
 include:     []
-exclude:     ["README.md", "Rakefile", "Gemfile", "CNAME"]
+exclude:     ["README.md", "Rakefile", "Gemfile", "CNAME", "assets/vendor/amazeui/"]
 
 # Plugins
 sass:
@@ -21,7 +19,7 @@ markdown:    kramdown
 highlighter: rouge
 
 # Serving
-url:         http://blog.aidistan.site
+url:         https://blog.aidistan.site
 baseurl:     ""
 
 # Outputting

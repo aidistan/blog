@@ -6,9 +6,7 @@
     {% endif %}
   </h1>
 
-  {% if page.layout == 'note' or page.layout == 'note-index' %}
-    {% include _breadcrumbs.html %}
-  {% elsif page.description %}
+  {% if page.description %}
     <p>{{ page.description }}</p>
   {% endif %}
 </div>
