@@ -1,8 +1,8 @@
 AllCops:
-  TargetRubyVersion: 2.5.5
+  TargetRubyVersion: 2.7.1
 
 # We should and could handle them ourselves.
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: false
 Metrics/BlockLength:
   Enabled: false
@@ -20,9 +20,9 @@ Style/GuardClause:
   Enabled: false
 
 # We prefer indented style then aligned style.
-Layout/AlignHash:
+Layout/HashAlignment:
   Enabled: false
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
