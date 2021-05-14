@@ -13,6 +13,7 @@ sass:
   style:     :compressed
 plugins:
   - jekyll-coffeescript
+  - jekyll-feed
 
 # Conversion
 markdown:    kramdown
