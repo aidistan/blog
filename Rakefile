@@ -13,7 +13,7 @@ namespace :serve do
     end
 
     File.open('__config.yml', 'w') { |fout| fout.puts YAML.dump(config) }
-    system('bundle exec jekyll serve --drafts --config __config.yml')
+    system('bundle exec jekyll serve --watch --livereload --drafts --config __config.yml')
   end
 end
 
