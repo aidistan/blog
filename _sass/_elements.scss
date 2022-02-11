@@ -24,15 +24,19 @@
 }
 
 #toc-sidebar {
+  .am-offcanvas-bar {
+    width: 400px;
+  }
+
   .toc-H2, .toc-H3, .toc-H4, .toc-H5, .toc-H6 {
     cursor: pointer;
     color: #ccc;
   }
   .toc-H2 { margin-left: 0em; }
-  .toc-H3 { margin-left: 1em; }
-  .toc-H4 { margin-left: 2em; }
-  .toc-H5 { margin-left: 3em; }
-  .toc-H6 { margin-left: 4em; }
+  .toc-H3 { margin-left: 2em; }
+  .toc-H4 { margin-left: 4em; }
+  .toc-H5 { margin-left: 6em; }
+  .toc-H6 { margin-left: 8em; }
 }
 
 #content.post {
