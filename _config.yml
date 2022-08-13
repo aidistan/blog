@@ -1,0 +1,36 @@
+# Infos
+title: Aidi's Tech Blog
+author:
+  name: Aidi Tan
+  email: aidistan@outlook.com
+description: >-
+  A journey of a thousand miles takes every step.
+  「不积跬步无以至千里」
+baseurl: ""
+url: "https://blog.aidistan.site"
+
+# Building
+markdown: kramdown
+remote_theme: jekyll/minima
+show_excerpts: true
+plugins:
+  - jekyll-feed
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - README.md
+
+# Minima settings
+minima:
+  social_links:
+    github: aidistan
+# header_pages:
+#   - about.md
+google_analytics: G-SMH67Q8EKB
+disqus:
+  shortname: aidis-tech-blog
