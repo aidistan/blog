@@ -1,0 +1,10 @@
+AllCops:
+  NewCops: enable
+
+# Enforce preferred styles
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false

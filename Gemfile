@@ -7,5 +7,6 @@ gem 'github-pages'
 group :development do
   gem 'dotenv'
   gem 'notion-sdk-ruby'
+  gem 'rubocop'
   gem 'webrick'
 end
