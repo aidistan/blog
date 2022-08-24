@@ -1,6 +1,12 @@
 require 'dotenv/load'
 require 'notion-sdk-ruby'
+require 'time'
 require 'yaml'
+
+desc 'Clean the website'
+task :c do
+  raise NotImplementedError # TODO
+end
 
 desc 'Serve the website'
 task :s do
@@ -18,23 +24,24 @@ task :default do
   client.databases.query_all('bbe660e545314937aa887569764b5458', {
     filter: { property: 'Column', select: { equals: 'Tech Blog' } }
   }) do |page|
-    puts "Start to process page #{page.id}..."
+    filename = "_posts/#{page.created_time[0...10]}-#{page.id}.md"
+    next unless Time.parse(page.last_edited_time) > File.open(filename).mtime
 
+    puts "Fetching latest version of page #{page.id}"
     contents = [
       {
         'layout' => 'post',
         'notion_id' => page.id,
         'title' => page.properties['Name']['title'].first['plain_text'],
         'slug' => page.properties['Origin']['url'].split('/').last.sub(/\.html$/, ''),
-        'date' => Date.iso8601(page.created_time).to_time.getlocal.to_s,
-        'modified_date' => Date.iso8601(page.last_edited_time).to_time.getlocal.to_s,
+        'date' => Time.parse(page.created_time).getlocal.to_s,
+        'modified_date' => Time.parse(page.last_edited_time).getlocal.to_s,
         'comments' => true
       }.compact.to_yaml + '---'
     ] + client.blocks.children.list_all(page.id).map(&:to_md)
 
-    filename = "_posts/#{page.created_time[0...10]}-#{page.id}.md"
     File.open(filename, 'w').puts contents.join("\n\n")
-    puts "Saved to #{filename}."
+    puts "Saved to #{filename}"
   end
 end
 
@@ -90,21 +97,17 @@ module Notion
   # https://developers.notion.com/reference/block
   class Block
     def to_md
-      unless self[type]['rich_text']
-        puts "Cannot convert into GitHub flavored markdown: #{JSON.pretty_generate(to_h)}"
-        return "```json\n#{JSON.pretty_generate(to_h)}\n```"
-      end
-
       prefix = ''
       suffix = ''
-      anofix = {} # fix for annotations, e.g. unbold all headings
 
       case type
-      # when 'paragraph'
+      when 'paragraph'
+        nil
       when /heading_(\d)/
         prefix = '#' * $1.to_i + ' '
-        anofix['bold'] = false
-      # when 'callout'
+        self[type]['rich_text'].map { _1['annotations']['bold'] = false } # unbold headings
+      when 'callout'
+        nil
       when 'quote'
         prefix = '> '
       when 'bulleted_list_item'
@@ -112,41 +115,59 @@ module Notion
       when 'numbered_list_item'
         prefix = '1. '
       when 'to_do'
-        prefix = self[type]['checked'] ? '- [x] ' : '- [ ] '
-      # when 'toggle'
+        prefix = to_do['checked'] ? '- [x] ' : '- [ ] '
+      when 'toggle'
+        nil
       when 'code'
-        prefix = "```#{self[type]['language'].split(' ').first}\n"
+        prefix = "```#{code['language'].split(' ').first}\n"
         suffix = "\n```"
+      when 'image'
+        res = Faraday.get(image[image['type']]['url'])
+        raise RuntimeError.new('Unable to fetch a image inside') unless res.success?
+
+        loc = 'assets/' + res.headers['x-amz-version-id'] + '.' + res.headers['content-type'].sub('image/', '')
+        File.open(loc, 'wb').puts res.body
+        return "{% include image src='/#{loc}' cap='#{RichText.to_md(image['caption'])}' %}"
+      when 'equation'
+        return '$$' + equation['expression'] + '$$' # TODO: import KaTex javascripts
+      else
+        raise RuntimeError.new('Unable to convert the block')
       end
 
-      prefix + self[type]['rich_text'].map do |o|
-        r = o['plain_text']
-        a = o['annotations'].merge(anofix)
+      # Only for types with rich_text, others should return in `case`
+      prefix + RichText.to_md(self[type]['rich_text']) + suffix
 
-        # For mutually exclusive annotations
-        r = a['code'] ? "`#{r}`" : a['underline'] ? "<u>#{r}</u>" : r
+    rescue RuntimeError => e
+      puts "#{e.message}: #{JSON.pretty_generate(to_h)}"
+      return "```json\n#{JSON.pretty_generate(to_h)}\n```"
+    end
+  end
 
-        # For non-exclusive annotations
-        r = "**#{r}**" if a['bold']
-        r =  "*#{r}*"  if a['italic']
-        r = "~~#{r}~~" if a['strikethrough']
+  class RichText < OpenStruct
+    def self.to_md(obj)
+      obj.is_a?(Array) ? obj.map { |item| new(item).to_md }.join : new(obj).to_md
+    end
 
-        # TODO: colors are not supported yet
+    def to_md
+      md = plain_text
 
-        # Add link
-        r = "[#{r}](#{o['href']})" + '{:target="_blank"}' if o['href']
+      # Shortcut for equation
+      return "$#{md}$" if type == 'equation' # TODO: import KaTex javascripts
 
-        # Capture cases
-        case o['type']
-        # when 'text'
-        when 'mention'
-          puts "Cannot convert into GitHub flavored markdown: #{JSON.pretty_generate(obj)}"
-        when 'equation'
-          puts "Cannot convert into GitHub flavored markdown: #{JSON.pretty_generate(obj)}"
-        end
+      # For mutually exclusive annotations
+      md = annotations['code'] ? "`#{md}`" : annotations['underline'] ? "<u>#{md}</u>" : md
 
-        r
-      end.join + suffix
+      # For non-exclusive annotations
+      md = "**#{md}**" if annotations['bold']
+      md =  "*#{md}*"  if annotations['italic']
+      md = "~~#{md}~~" if annotations['strikethrough']
+
+      # TODO: support colors with Tailwind CSS
+
+      # Add link
+      md = "[#{md}](#{href})" + '{:target="_blank"}' if href
+
+      md
     end
   end
 end
