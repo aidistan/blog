@@ -1,7 +1,7 @@
 Rake.add_rakelib '_includes'
 
 desc 'Check the website'
-task c: %w[check:codes check:urls check:assets]
+task c: %w[check:codes check:assets]
 
 desc 'Serve the website'
 task :s do

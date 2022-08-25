@@ -1,8 +1,10 @@
 namespace :check do
+  desc 'Lint codes with rubocop'
   task :codes do
     system('bundle exec rubocop')
   end
 
+  desc 'Check redundent assets'
   task assets: :b do
     denpedents = Dir['assets/*'].map { [_1, []] }.to_h
     pattern = Regexp.new(Dir['assets/*'].join('|'))

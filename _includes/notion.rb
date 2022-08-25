@@ -77,14 +77,17 @@ module Notion
         prefix = "```#{code['language'].split.first}\n"
         suffix = "\n```"
       when 'image'
-        res = Faraday.get(image[image['type']]['url'])
+        url = image[image['type']]['url']
+        res = Faraday.get(url)
         raise 'Unable to fetch a image inside' unless res.success?
 
-        loc = "assets/#{res.headers['x-amz-version-id']}.#{res.headers['content-type'].sub('image/', '')}"
+        loc = "assets/#{url.split('/')[-2]}.#{res.headers['content-type'].sub('image/', '')}"
         File.open(loc, 'wb').puts res.body
         return "{% include figure src='/#{loc}' cap='#{RichText.to_md(image['caption'])}' %}"
       when 'equation'
         return "$$#{equation['expression']}$$"
+      when 'divider'
+        return '---'
       else
         raise 'Unable to convert the block'
       end

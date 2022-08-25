@@ -1,9 +1,14 @@
+require:
+  - rubocop-rake
+
 AllCops:
   NewCops: enable
 
 # Enforce preferred styles
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
 Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:

@@ -5,10 +5,12 @@ require 'yaml'
 require_relative './notion'
 
 namespace :synchronize do
+  desc 'Synchronize all pages'
   task :fully do
     synchronize(:fully)
   end
 
+  desc 'Synchronize updated pages'
   task :incrementally do
     synchronize(:incrementally)
   end
@@ -20,7 +22,9 @@ def synchronize(type) # rubocop:disable Metrics/*
     filter: { property: 'Column', select: { equals: 'Tech Blog' } }
   }) do |page|
     filename = "_posts/#{page.created_time[0...10]}-#{page.id}.md"
-    next unless type == :fully || Time.parse(page.last_edited_time) > File.open(filename).mtime
+
+    next if type == :incrementally && File.exist?(filename) &&
+      File.open(filename).mtime > Time.parse(page.last_edited_time)
 
     puts "Fetching latest version of page #{page.id}"
     contents = [
