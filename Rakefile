@@ -1,17 +1,23 @@
 Rake.add_rakelib '_includes'
 
 desc 'Check the website'
-task c: %w[check:codes check:assets]
+task check: %w[check:codes check:assets]
+desc 'Shorthand to task check'
+task c: :check
 
 desc 'Serve the website'
-task :s do
+task :serve do
   system('bundle exec jekyll serve --watch --livereload')
 end
+desc 'Shorthand to task serve'
+task s: :serve
 
 desc 'Build the website'
-task :b do
+task :build do
   system('bundle exec jekyll build')
 end
+desc 'Shorthand to task build'
+task b: :build
 
-desc 'Synchronize with writings'
+desc 'Shorthand to task synchronize:incrementally'
 task default: 'synchronize:incrementally'
