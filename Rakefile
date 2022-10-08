@@ -1,4 +1,4 @@
-Rake.add_rakelib '_includes'
+Rake.add_rakelib '_includes/tasks'
 
 desc 'Check the website'
 task check: %w[check:codes check:assets]
