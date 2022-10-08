@@ -84,6 +84,8 @@ module Notion
         loc = "assets/#{url.split('/')[-2]}.#{res.headers['content-type'].sub('image/', '')}"
         File.open(loc, 'wb').puts res.body
         return "{% include figure src='/#{loc}' cap='#{RichText.to_md(image['caption'])}' %}"
+      when 'bookmark', 'link_preview'
+        return ''
       when 'equation'
         return "$$#{equation['expression']}$$"
       when 'divider'
