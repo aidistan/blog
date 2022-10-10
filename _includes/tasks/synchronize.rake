@@ -29,7 +29,7 @@ def synchronize(type) # rubocop:disable Metrics/*
     next if type == :incrementally && File.exist?(filename) &&
       Time.parse(modified_date) == Time.parse(page.last_edited_time)
 
-    puts "Fetching latest version of page #{page.id}"
+    info "Fetching latest version of page #{page.id}"
     contents = [
       { # rubocop:disable Style/StringConcatenation
         'layout' => 'post',
@@ -43,6 +43,6 @@ def synchronize(type) # rubocop:disable Metrics/*
     ] + client.blocks.children.list_all(page.id).map(&:to_md).reject(&:empty?)
 
     File.open(filename, 'w').puts contents.join("\n\n")
-    puts "Saved to #{filename}"
+    info "Saved to #{filename}"
   end
 end

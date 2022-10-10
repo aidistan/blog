@@ -1,7 +1,7 @@
 namespace :check do
   desc 'Lint codes with rubocop'
   task :codes do
-    system('bundle exec rubocop')
+    execute 'bundle exec rubocop --format tap'
   end
 
   desc 'Check redundent assets'
@@ -14,11 +14,11 @@ namespace :check do
     end
 
     redundents = denpedents.keys.select { denpedents[_1].empty? }
-    if redundents.empty?
-      puts 'No redundent asset found.'
-    else
-      puts 'Redundent assets are:'
-      puts redundents
+    next info 'No redundent asset found.' if redundents.empty?
+
+    redundents.each do |path|
+      info "Remove redundent asset '#{path}'"
+      execute "rm #{path}"
     end
   end
 end

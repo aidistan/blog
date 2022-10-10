@@ -1,23 +1,34 @@
+require 'sshkit'
+require 'sshkit/dsl'
+include SSHKit::DSL # rubocop:disable Style/MixinUsage
+require 'airbrussh'
+SSHKit.config.output = Airbrussh::Formatter.new($stdout, banner: nil, command_output: true, log_file: nil)
+
+%w[execute test capture debug info warn error fatal].each do |m|
+  eval <<~END_OF_DOC, binding, __FILE__, __LINE__ + 1 # rubocop:disable all
+    def #{m}(...)
+      run_locally { #{m}(...) }
+    end
+  END_OF_DOC
+end
+
+# Load task libraries
 Rake.add_rakelib '_includes/tasks'
 
-desc 'Check the website'
+desc 'Check the website (aka :c)'
 task check: %w[check:codes check:assets]
-desc 'Shorthand to task check'
-task c: :check
+task c: :check # rubocop:disable Rake/Desc
 
-desc 'Serve the website'
+desc 'Serve the website (aka :s)'
 task :serve do
-  system('bundle exec jekyll serve --watch --livereload')
+  execute 'bundle exec jekyll serve --watch --livereload'
 end
-desc 'Shorthand to task serve'
-task s: :serve
+task s: :serve # rubocop:disable Rake/Desc
 
-desc 'Build the website'
+desc 'Build the website (aka :b)'
 task :build do
-  system('bundle exec jekyll build')
+  execute 'bundle exec jekyll build'
 end
-desc 'Shorthand to task build'
-task b: :build
+task b: :build # rubocop:disable Rake/Desc
 
-desc 'Shorthand to task synchronize:incrementally'
 task default: 'synchronize:incrementally'
