@@ -54,6 +54,16 @@ module Notion
     def to_md # rubocop:disable Metrics/*
       prefix = ''
       suffix = ''
+      children = ''
+
+      if has_children
+        children =
+          Notion::Api::BlocksChildrenMethods
+          .new.list_all(id)
+          .map(&:to_md).reject(&:empty?)
+          .unshift('').join("\n\n")
+          .split("\n").map { (_1.empty? ? '' : ' ' * 4) + _1 }.join("\n")
+      end
 
       case type
       when 'paragraph'
@@ -95,7 +105,7 @@ module Notion
       end
 
       # Only for types with rich_text, others should return in `case`
-      prefix + RichText.to_md(self[type]['rich_text']) + suffix
+      prefix + RichText.to_md(self[type]['rich_text']) + suffix + children
     rescue RuntimeError => e
       puts "#{e.message}: #{JSON.pretty_generate(to_h)}"
       "```json\n#{JSON.pretty_generate(to_h)}\n```"
