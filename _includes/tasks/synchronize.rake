@@ -23,8 +23,11 @@ def synchronize(type) # rubocop:disable Metrics/*
   }) do |page|
     filename = "_posts/#{page.created_time[0...10]}-#{page.id}.md"
 
+    File.read(filename).match(/^modified_date: '([^']+)'/)
+    modified_date = Regexp.last_match[1]
+
     next if type == :incrementally && File.exist?(filename) &&
-      File.open(filename).mtime > Time.parse(page.last_edited_time)
+      Time.parse(modified_date) == Time.parse(page.last_edited_time)
 
     puts "Fetching latest version of page #{page.id}"
     contents = [
