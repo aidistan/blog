@@ -2,7 +2,7 @@ require 'dotenv/load'
 require 'time'
 require 'yaml'
 
-require_relative './notion'
+require_relative 'notion'
 
 namespace :synchronize do
   desc 'Synchronize all pages'

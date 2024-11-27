@@ -6,7 +6,7 @@ namespace :check do
 
   desc 'Check redundent assets'
   task assets: :b do
-    denpedents = Dir['assets/*'].map { [_1, []] }.to_h
+    denpedents = Dir['assets/*'].to_h { [_1, []] }
     pattern = Regexp.new(Dir['assets/*'].join('|'))
 
     Dir['_site/**/*.html'].each do |path|
