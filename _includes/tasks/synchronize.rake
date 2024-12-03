@@ -22,20 +22,15 @@ def synchronize(type) # rubocop:disable Metrics/*
     filter: { property: 'Column', select: { equals: 'Tech Blog' } }
   }) do |page|
     filename = "_posts/#{page.created_time[0...10]}-#{page.id}.md"
-
-    File.read(filename).match(/^modified_date: '([^']+)'/)
-    modified_date = Regexp.last_match[1]
-
-    next if type == :incrementally && File.exist?(filename) &&
-      Time.parse(modified_date) == Time.parse(page.last_edited_time)
+    next if type == :incrementally && File.exist?(filename) && unmodified?(filename, page)
 
     info "Fetching latest version of page #{page.id}"
     contents = [
       { # rubocop:disable Style/StringConcatenation
         'layout' => 'post',
         'notion_id' => page.id,
-        'title' => page.properties['Name']['title'].first['plain_text'],
-        'slug' => page.properties['Origin']['url'].split('/').last.sub(/\.html$/, ''),
+        'title' => page.properties['Name']['title'].map { _1['plain_text'] }.join,
+        'slug' => page.properties['Origin']['url']&.split('/')&.last&.sub(/\.html$/, ''),
         'date' => Time.parse(page.created_time).getlocal.to_s,
         'modified_date' => Time.parse(page.last_edited_time).getlocal.to_s,
         'comments' => true
@@ -45,4 +40,10 @@ def synchronize(type) # rubocop:disable Metrics/*
     File.open(filename, 'w').puts contents.join("\n\n")
     info "Saved to #{filename}"
   end
+end
+
+def unmodified?(filename, page)
+  File.read(filename).match(/^modified_date: '([^']+)'/)
+  modified_date = Regexp.last_match[1]
+  Time.parse(modified_date) == Time.parse(page.last_edited_time)
 end
